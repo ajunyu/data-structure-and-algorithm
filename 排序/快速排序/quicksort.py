@@ -1,4 +1,3 @@
-
 def quickSort(a, left, right):
     base = a[left]
     low = left
