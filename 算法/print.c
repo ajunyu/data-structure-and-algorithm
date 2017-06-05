@@ -1,4 +1,4 @@
-/* 不使用循环递归打印0-999 */
+/* 涓嶄娇鐢ㄥ惊鐜�掑綊鎵撳嵃0-999 */
 #include <stdio.h>
 
 #define PRINT(x) x; x; x; x; x; x; x; x; x; x;
