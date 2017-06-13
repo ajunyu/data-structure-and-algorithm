@@ -1,22 +1,22 @@
 /*
- * Çó½â n ½× Hanoi ËþÎÊÌâµÄµÝ¹éËã·¨
+ * æ±‚è§£ n é˜¶ Hanoi å¡”é—®é¢˜çš„é€’å½’ç®—æ³•
  */
 
-// ½«Ëþ×ùxÉÏ´ÓÉÏµ½ÏÂ±àºÅÎª1ÖÁn£¬ÇÒ°´Ö±¾¶ÓÉÐ¡µ½´óµþ·ÅµÄn¸öÔ²ÅÌ£¬°´¹æÔò°áµ½Ëþ×ùzÉÏ£¬yÓÃ×÷¸¨ÖúËþ×ù
+// å°†å¡”åº§xä¸Šä»Žä¸Šåˆ°ä¸‹ç¼–å·ä¸º1è‡³nï¼Œä¸”æŒ‰ç›´å¾„ç”±å°åˆ°å¤§å æ”¾çš„nä¸ªåœ†ç›˜ï¼ŒæŒ‰è§„åˆ™æ¬åˆ°å¡”åº§zä¸Šï¼Œyç”¨ä½œè¾…åŠ©å¡”åº§
 void hanoi(int n, char x, char y, char z)
 {
 	if (n == 1)
 	{
-		// ½«±àºÅÎª1µÄÔ²ÅÌ´ÓxÒÆ¶¯µ½z
+		// å°†ç¼–å·ä¸º1çš„åœ†ç›˜ä»Žxç§»åŠ¨åˆ°z
 		move(x, 1, z);
 	}
 	else
 	{
-		// ½«xÉÏ±àºÅÎª1ÖÁn-1µÄÔ²ÅÌÒÆµ½y£¬z×÷¸¨ÖúËþ
+		// å°†xä¸Šç¼–å·ä¸º1è‡³n-1çš„åœ†ç›˜ç§»åˆ°yï¼Œzä½œè¾…åŠ©å¡”
 		hanoi(n - 1, x, z, y);
-		// ½«±àºÅÎªnµÄÔ²ÅÌ´ÓxÒÆµ½z
+		// å°†ç¼–å·ä¸ºnçš„åœ†ç›˜ä»Žxç§»åˆ°z
 		move(x, n, z);
-		// ½«yÉÏ±àºÅÎª1ÖÁn-1µÄÔ²ÅÌÒÆµ½z£¬x×÷¸¨ÖúËþ
+		// å°†yä¸Šç¼–å·ä¸º1è‡³n-1çš„åœ†ç›˜ç§»åˆ°zï¼Œxä½œè¾…åŠ©å¡”
 		hanoi(n - 1, y, x, z);
 	}
 }
