@@ -1,5 +1,5 @@
 // 入队操作
-int enterQueue(SeqQueue *Q, QueueElementType x)
+int EnterQueue(SeqQueue *Q, QueueElementType x)
 {
     // 将元素 x 入队
     if ((Q->rear + 1) % MAXSIZE == Q->front)
@@ -12,7 +12,7 @@ int enterQueue(SeqQueue *Q, QueueElementType x)
 }
 
 // 出队操作
-int deleteQueue(SeqQueue *Q, QueueElementType *x)
+int DeleteQueue(SeqQueue *Q, QueueElementType *x)
 {
     // 删除队头元素，用 x 返回其值
     if (Q->front == Q->rear)
