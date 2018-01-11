@@ -144,7 +144,7 @@ int main()
 			infix.push_back(number);
 		} else {
 			string symbol(1, s.at(i));
-		infix.push_back(symbol);
+			infix.push_back(symbol);
 		}
 	}
 
