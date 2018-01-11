@@ -4,7 +4,7 @@ using namespace std;
 
 int main()
 {
-	char *str = "https://github.com/forzxy";
+	char *str = "https://github.com/junyux";
 	char *subStr = "github";
 
 	int strLen = strlen(str);
