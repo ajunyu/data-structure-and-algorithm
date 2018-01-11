@@ -8,16 +8,16 @@ void main()
 {
 	int a[10], t;
 	printf("input 10 numbers:\n");
-	for (int i = 0; i<10; i++)
+	for (int i = 0; i < 10; i++)
 		scanf("%d", &a[i]);
-	for (int j = 0; j<9; j++)
-		for (int i = j + 1; i<10; i++)
-			if (a[i]<a[j]) {
+	for (int j = 0; j < 9; j++)
+		for (int i = j + 1; i < 10; i++)
+			if (a[i] < a[j]) {
 				t = a[j];
 				a[j] = a[i];
 				a[i] = t;
 			}
 	printf("result:\n");
-	for (int i = 0; i<10; i++)
+	for (int i = 0; i < 10; i++)
 		printf("%d ", a[i]);
 }
