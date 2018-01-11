@@ -10,26 +10,26 @@ void main() {
 	scanf("%d", &n);
 	t = n;
 
-	while (t>1) {
+	while (t > 1) {
 		/* 找出最后一个 */
-		if ((i % 3 != 0) && (num[j%n]) != 0) {
+		if ((i % 3 != 0) && (num[j % n]) != 0) {
 			/* 没报到3并且记录不为0的 就记录 */
-			num[j%n] = i % 3;
+			num[j % n] = i % 3;
 			j++;
 			i++;
 		}
-		else if (num[j%n] == 0)
+		else if (num[j % n] == 0)
 			/* 已经退出的位置不要 */
 			j++;
 		else {
 			/* 报到3就记录为0，人数减一 */
-			num[j%n] = 0;
+			num[j % n] = 0;
 			j++;
 			i++;
 			t--;
 		}
 	}
-	for (i = 0; i<n; i++)
+	for (i = 0; i < n; i++)
 		/* 输出记录不为零的就是最后留下的 如果位置是0就是第n个 */
 		if (num[i] != 0) {
 			if (i == 0)
