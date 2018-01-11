@@ -89,30 +89,30 @@ double calculate(deque<string> postfix) {
 			number.push(num);
 		} else {
 			double right = number.top();
-		number.pop();
-		double left = number.top();
-		number.pop();
+			number.pop();
+			double left = number.top();
+			number.pop();
 
-		double result;
+			double result;
 
-		switch (*front.c_str()) {
-			case '+':
-				result = left + right;
-				break;
-			case '-':
-			result = left - right;
-			break;
-			case '*':
-			result = left * right;
-			break;
-			case '/':
-			result = left / right;
-			break;
-			default:
-				break;
-		}
+			switch (*front.c_str()) {
+				case '+':
+					result = left + right;
+					break;
+				case '-':
+					result = left - right;
+					break;
+				case '*':
+					result = left * right;
+					break;
+				case '/':
+					result = left / right;
+					break;
+				default:
+					break;
+			}
 
-		number.push(result);
+			number.push(result);
 		}
 
 		postfix.pop_front();
