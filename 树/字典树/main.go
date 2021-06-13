@@ -4,51 +4,51 @@ import (
 	"fmt"
 )
 
-type trie struct {
-	children []*trie
-	parent   *trie
+type node struct {
+	children []*node
+	parent   *node
 	freq     int
 	data     rune
 	id       int
 	isEnd    bool
 }
 
-func NewTrie() *trie {
-	return &trie{}
+func NewNode() *node {
+	return &node{}
 }
 
-func (t *trie) add(data rune) *trie {
-	trie := NewTrie()
-	trie.data = data
-	trie.parent = t
-	t.children = append(t.children, trie)
+func (n *node) add(data rune) *node {
+	node := NewNode()
+	node.data = data
+	node.parent = n
+	n.children = append(n.children, node)
 
-	return trie
+	return node
 }
 
-func (t *trie) Insert(data string) {
+func (n *node) Insert(data string) {
 out:
 	for _, s := range data {
-		for _, child := range t.children {
+		for _, child := range n.children {
 			if child.data == s {
-				t = child
+				n = child
 				continue out
 			}
 		}
-		t = t.add(s)
+		n = n.add(s)
 	}
-	t.isEnd = true
+	n.isEnd = true
 }
 
-func (t trie) Search(data string) *trie {
+func (n node) Search(data string) *node {
 	if len(data) == 0 {
-		return &t
+		return &n
 	}
 
 	b := data[0]
 	data = data[1:]
 
-	for _, child := range t.children {
+	for _, child := range n.children {
 		if child.data == rune(b) {
 			return child.Search(data)
 		}
@@ -57,29 +57,29 @@ func (t trie) Search(data string) *trie {
 	return nil
 }
 
-func (t trie) Print() {
-	fmt.Printf("%c", t.data)
-	for _, child := range t.children {
+func (n node) Print() {
+	fmt.Printf("%c", n.data)
+	for _, child := range n.children {
 		child.Print()
 	}
 }
 
-func (t trie) PrintR() {
-	if t.isEnd {
-		t.PrintPath()
+func (n node) PrintR() {
+	if n.isEnd {
+		n.PrintPath()
 	}
 
-	for _, child := range t.children {
+	for _, child := range n.children {
 		child.PrintR()
 	}
 }
 
-func (t trie) PrintPath() {
+func (n node) PrintPath() {
 	var r []rune
 
-	for t.parent != nil {
-		r = append(r, t.data)
-		t = *t.parent
+	for n.parent != nil {
+		r = append(r, n.data)
+		n = *n.parent
 	}
 
 	for i, j := 0, len(r)-1; i < j; i, j = i+1, j-1 {
@@ -93,13 +93,13 @@ func (t trie) PrintPath() {
 }
 
 func main() {
-	t := NewTrie()
-	t.Insert("hello")
-	t.Insert("hi")
-	t.Insert("cat")
-	t.Insert("category")
-	r := t.Search("h")
-	if r != nil {
-		r.PrintR()
+	r := NewNode()
+	r.Insert("hello")
+	r.Insert("hi")
+	r.Insert("cat")
+	r.Insert("category")
+	n := r.Search("h")
+	if n != nil {
+		n.PrintR()
 	}
 }
